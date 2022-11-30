@@ -1,0 +1,276 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root{
+    font-size: 62.5%;
+
+    --bg-header: #8E9AAF;
+    --bg-h1: #CBC0D3;
+    --bg-main: #EFF1FF;
+    --bg-h3:#FEEAFA;
+
+    --fc-h1:#ffffff;
+    --fc-h2: #23053A;
+    --fc-h3: #4A4E69;
+
+    --fs-header:'Staatliches', cursive;
+    --fs-main: 'Palanquin', sans-serif;
+}
+
+.page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-main); 
+    max-width: 38.4rem;
+    height: auto;
+    margin: 0 auto;
+ 
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    background-color: var(--bg-header);
+    width: 38.4rem;
+    height: 27.9rem;
+    position: relative;
+}
+
+header img{
+    margin: 3.8rem 13.0rem 4.5rem;
+    width: 12.4rem;
+    height: 12.4rem;
+    position: absolute;
+}
+
+.imageTopMobile{
+    position: relative;
+}
+
+.imageTopDesktop{
+    visibility: hidden;
+    position: absolute;     
+}
+
+header h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-transform: uppercase;
+    font-family: var(--fs-header);
+    color: var(--fc-h1);
+    font-weight: 400;
+
+    font-size: 4.0rem;
+    line-height: 3.4rem;
+    
+
+    background-color: var(--bg-h1);
+
+    width: 38.4rem;
+    height: 4.9rem;
+}
+
+.subtitle{
+    color: var(--fc-h2);
+    font-family: var(--fs-main);
+    font-weight: 400;
+    line-height: 1.5rem;
+    text-align: center;
+    /*font-size: 2.0rem;*/
+    font-size: 2.0rem;
+    margin: 1.6rem auto 6.3rem;
+    width: 30rem;
+    height: 7.5rem;
+    
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.6rem;
+
+    padding: 1.4rem 3.2rem 6.0rem;  
+}
+
+.card{
+    position: relative;
+}
+
+.card img{
+    animation: downtop 900ms 350ms reverse backwards;
+    opacity: 0.8;
+    transition: transform 300ms; /*tempo de execução da transição que ocorre no hover*/
+    width: 32rem;
+}
+
+.card img:hover{
+    transform: scale(1.1); /*Aumenta o tamanho da escala*/
+    opacity: 1;/*Retira a opacidade colocadano .car img de 0.8*/
+
+}
+
+main  h3{
+    position: absolute;
+    top: 0.9rem;
+    right: 0.5rem;
+
+    font: var(--fs-header);
+    color: var(--fc-h3);
+    background-color: var(--bg-h3);
+    border-radius: 2.0rem;
+    font-size: 1.4rem;/*original 2.0rem*/
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 3.4rem;
+    text-align: center;
+
+
+    width: 9.2rem; /*original 12.2rem*/
+    height: 3.0rem; /*original 3.5rem*/
+
+    animation-name: topdown;
+    animation-duration: 1000ms; /*tempo de duração da animação*/
+    animation-delay: 1100ms; /*Tempo que a animação demora para acontecer*/
+    animation-fill-mode: backwards; /*inicia do fim para o começo*/
+}
+
+@keyframes topdown {
+    0%{
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes downtop {
+    100%{
+        opacity: 0;
+        transform: translateY(15px);
+    }
+}
+
+.footer{
+    visibility:hidden;
+}
+
+@media (min-width:930px){ 
+    .page{
+        display: grid;
+        align-items: center;
+        grid-template-areas: 
+        'header main main main'
+        'h2 main main main';
+
+        background-color: white;
+        height:83.0rem;
+        max-width: 128.4rem;
+
+        padding: 2rem 0;
+    }
+
+    header{
+        grid-area: header;
+        height: 5.0rem;
+        width: 38.4rem;
+        height: 72rem;
+        border-radius: 2rem;
+    }
+
+    .imageTopMobile{
+        visibility: hidden;
+    }
+
+    .imageTopDesktop{
+        visibility: visible;
+        margin-top: 5rem;
+        width: 21.4rem;
+        height: 16.7rem;
+        padding-bottom: 3.5rem;   
+    }
+
+    .subtitle{
+        grid-area: h2;
+        visibility: hidden;
+        position: relative;
+    }
+    .subtitle:after{
+        visibility: visible;
+        position:absolute;
+
+        font-size: 2.1rem;
+        color: white;
+        line-height: 20px;
+        
+        top: 0;
+        left: 0;
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a rhoncus leo. Donec at scelerisque magna. Nullam vitae neque sit amet erat dignissim cursus ac ac lectus. Aliquam erat volutpat. Praesent at quam aliquet, pharetra est in, sagittis lorem.elit. Donec a rhoncus leo. Donec at scelerisque magna. Nullam vitae neque sit amet erat dignissim cursus ac ac lectus. Aliquam erat volutpat. Praesent at quam aliquet, pharetra est in, sagittis lorem. ";
+    
+        margin-top: -42rem;
+        
+    }
+   
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main{
+        display: grid;
+        grid-area: main;
+        align-items: center;
+        padding: 3.7rem 3.2rem 3.7rem;  
+        grid-template-areas: 
+        'A B C'
+        'D B E'
+        'D F E';
+    }
+
+    .page .card:nth-child(1){
+        grid-area: A;
+    }
+    .page .card:nth-child(2){
+        grid-area: B;
+    }
+    .page .card:nth-child(3){
+        grid-area: C;
+    }
+    .page .card:nth-child(4){
+        grid-area: D;
+    }
+    .page .card:nth-child(6){
+        grid-area: E;
+    }
+    .page .card:nth-child(5){
+        grid-area: F;
+    }
+
+    .card h3{
+        display: none;
+    }
+
+    .card img{
+        width: 26rem;
+        
+    }
+
+    .footer {
+        visibility:visible;
+        font-size: 1.6rem;
+        font-family: 'Open Sans';
+        line-height: 2.8rem;
+    }
+}
